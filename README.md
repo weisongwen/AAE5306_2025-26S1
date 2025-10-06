@@ -136,10 +136,10 @@ rostopic list
 # Representative telemetry topics.
 rostopic echo /mavros/imu/data                    # Drone IMU
 rostopic echo /iris_3Dlidar/camera_imu            # Camera IMU
-rostopic echo /iris_3Dlidar/realsense/depth_camera/color/image_raw
-rostopic echo /iris_3Dlidar/realsense/depth_camera/depth/image_raw
-rostopic echo /iris_3Dlidar/stereo_camera/left/image_raw
-rostopic echo /iris_3Dlidar/stereo_camera/right/image_raw
+rostopic echo /iris_3Dlidar/realsense/depth_camera/color/image_raw #RGB Camera
+rostopic echo /iris_3Dlidar/realsense/depth_camera/depth/image_raw #Depth Camera
+rostopic echo /iris_3Dlidar/stereo_camera/left/image_raw #Left Camera
+rostopic echo /iris_3Dlidar/stereo_camera/right/image_raw #Right Camera
 rostopic echo /mavros/local_position/odom         # Local odometry ground truth of the drone
 rostopic echo /mavros/global_position/global      # Global position ground truth of the drone
 rostopic echo /velodyne_points                    # Velodyne point cloud
