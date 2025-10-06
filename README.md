@@ -1,5 +1,5 @@
-# PX4 / MAVROS Environment Setup Guide
-
+# AAE5306 - Guidance and Navigation
+## PX4 / MAVROS Environment Setup Guide
 This guide walks you through installing the PX4 Autopilot toolchain, configuring MAVROS, and running simulation demos that showcase the Iris drone with additional sensors (Velodyne LiDAR, Intel RealSense D435i, GNSS, and IMU). A pre-packaged archive with extra models is available in `PX4-Autopilot.zip`; downloading and expanding it is recommended before you begin.
 
 ## Repository Contents
@@ -126,6 +126,8 @@ Reload the file (`source ~/.bashrc`) or open a new terminal, then retry the `ros
 ### Checking Topics Inside the Simulation
 
 Once the Gazebo world is running you can explore published topics. The list below highlights useful telemetry streams:
+
+> **Tip:** For the images, you can directly run the command `rqt_image_view`, you will see the different images
 
 ```bash
 # Enumerate all available topics.
