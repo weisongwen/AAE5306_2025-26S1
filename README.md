@@ -140,7 +140,7 @@ rostopic echo /iris_3Dlidar/realsense/depth_camera/color/image_raw
 rostopic echo /iris_3Dlidar/realsense/depth_camera/depth/image_raw
 rostopic echo /iris_3Dlidar/stereo_camera/left/image_raw
 rostopic echo /iris_3Dlidar/stereo_camera/right/image_raw
-rostopic echo /mavros/local_position/odom         # Local odometry
-rostopic echo /mavros/global_position/global      # Global position
+rostopic echo /mavros/local_position/odom         # Local odometry ground truth of the drone
+rostopic echo /mavros/global_position/global      # Global position ground truth of the drone
 rostopic echo /velodyne_points                    # Velodyne point cloud
 ```
