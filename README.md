@@ -9,7 +9,7 @@ This guide walks you through installing the PX4 Autopilot toolchain, configuring
 | `PX4-Autopilot.zip` | Preconfigured PX4 tree containing custom sensor models. |
 | `README.md` | This setup and troubleshooting guide. |
 
-> **Tip:** If you have download and build the PX4-Autopilot before. You just need to replace the `launch` folder and `Tools` folder in the new PX4-Autopilot package with the old PX4-Autopilot package `launch` folder and `Tools` folder
+> **Tip:** If you have successfully download and build the PX4-Autopilot before. You just need to replace the `launch` folder and `Tools` folder in the new PX4-Autopilot package with the old PX4-Autopilot package `launch` folder and `Tools` folder
 
 ## 1. Install PX4 Dependencies and Build Tools
 
