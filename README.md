@@ -121,7 +121,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/sitl_gazebo
 ```
 
-Reload the file (`source ~/.bashrc`) or open a new terminal, then retry the `roslaunch` command.
+Reload the file (`source ~/.bashrc`) or `open a new terminal`, then retry the `roslaunch` command.
 
 ### Checking Topics Inside the Simulation
 
