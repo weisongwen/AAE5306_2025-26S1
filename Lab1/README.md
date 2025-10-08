@@ -30,12 +30,7 @@ sudo reboot
 
 # After the reboot, build and launch the JMAVSim SITL target.
 cd PX4-Autopilot
-make px4_sitl jmavsim  # JMAVSim simulation
 ```
-
-When the JMAVSim window appears the SITL environment is ready:
-
-![JMAVSim SITL interface](images/jmavsim.jpg)
 
 To launch the Gazebo variant:
 
