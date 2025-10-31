@@ -1,0 +1,57 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/cgy/catkin_race/devel/include/**",
+        "/home/cgy/mavros_ws/devel/include/**",
+        "/home/cgy/Prometheus/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/airsim_ros_pkgs/include/**",
+        "/home/cgy/Prometheus/Modules/planning/FastPlanner/bspline_opt/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/sfc/DecompROS/decomp_ros_utils/include/**",
+        "/home/cgy/mavros_ws/src/mavros/libmavconn/include/**",
+        "/home/cgy/PX4-Autopilot/Tools/sitl_gazebo/include/**",
+        "/home/cgy/mavros_ws/src/mavros/mavros/include/**",
+        "/home/cgy/mavros_ws/src/mavros/mavros_msgs/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/uav_simulator/Utils/multi_map_server/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/octomap_server/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/path_searching/include/**",
+        "/home/cgy/Prometheus/Modules/planning/FastPlanner/plan_env/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/plan_manage/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/uav_simulator/Utils/pose_utils/include/**",
+        "/home/cgy/Prometheus/Modules/control/include/**",
+        "/home/cgy/Prometheus/Simulator/gazebo_simulator/include/**",
+        "/home/cgy/Prometheus/Modules/planning/global_planning/include/**",
+        "/home/cgy/Prometheus/Modules/planning/hybrid_astar/include/**",
+        "/home/cgy/Prometheus/Modules/planning/local_planner/include/**",
+        "/home/cgy/Prometheus/Modules/mission/include/**",
+        "/home/cgy/Prometheus/Modules/planning/FastPlanner/plan_manage/include/**",
+        "/home/cgy/Prometheus/Modules/planning/Utils/pose_utils/include/**",
+        "/home/cgy/Prometheus/Modules/ground_station/include/**",
+        "/home/cgy/Prometheus/Modules/planning/swarm_planning/include/**",
+        "/home/cgy/Prometheus/Modules/ugv_control/include/**",
+        "/home/cgy/catkin_race/src/px4_race/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/px4ctrl/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/quadrotor_msgs/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/uav_simulator/so3_control/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/uav_simulator/so3_disturbance_generator/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/uav_simulator/so3_quadrotor_simulator/include/**",
+        "/home/cgy/mavros_ws/src/mavros/test_mavros/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/traj_server/include/**",
+        "/home/cgy/Prometheus/Modules/planning/FastPlanner/traj_utils/include/**",
+        "/home/cgy/catkin_race/src/Fast-Racing/src/utils/uav_simulator/Utils/uav_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

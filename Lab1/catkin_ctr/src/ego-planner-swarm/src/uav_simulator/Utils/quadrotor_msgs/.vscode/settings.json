@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/cgy/catkin_race/devel/lib/python2.7/dist-packages",
+        "/home/cgy/mavros_ws/devel/lib/python2.7/dist-packages",
+        "/home/cgy/Prometheus/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/cgy/catkin_race/devel/lib/python2.7/dist-packages",
+        "/home/cgy/mavros_ws/devel/lib/python2.7/dist-packages",
+        "/home/cgy/Prometheus/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
+}
