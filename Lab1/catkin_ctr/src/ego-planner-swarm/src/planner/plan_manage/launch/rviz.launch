@@ -1,4 +1,4 @@
 <launch>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ego_planner)/launch/default_test.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ego_planner)/launch/default1.rviz" required="true" />
 
 </launch>
