@@ -1,33 +1,35 @@
 /*******************************************************
  * Copyright (C) 2019, Aerial Robotics Group, Hong Kong University of Science and Technology
- * 
+ *
  * This file is part of VINS.
- * 
+ *
  * Licensed under the GNU General Public License v3.0;
  * you may not use this file except in compliance with the License.
  *******************************************************/
 
 #pragma once
 
-#include <ros/ros.h>
-#include <std_msgs/Header.h>
-#include <std_msgs/Float32.h>
-#include <std_msgs/Bool.h>
-#include <sensor_msgs/Imu.h>
-#include <sensor_msgs/PointCloud.h>
-#include <sensor_msgs/Image.h>
-#include <sensor_msgs/image_encodings.h>
-#include <cv_bridge/cv_bridge.h>
-#include <nav_msgs/Path.h>
-#include <nav_msgs/Odometry.h>
-#include <geometry_msgs/PointStamped.h>
-#include <visualization_msgs/Marker.h>
-#include <tf/transform_broadcaster.h>
-#include "CameraPoseVisualization.h"
-#include <eigen3/Eigen/Dense>
 #include "../estimator/estimator.h"
 #include "../estimator/parameters.h"
+#include "CameraPoseVisualization.h"
+#include <cv_bridge/cv_bridge.h>
+#include <eigen3/Eigen/Dense>
 #include <fstream>
+#include <geometry_msgs/PointStamped.h>
+#include <nav_msgs/Odometry.h>
+#include <nav_msgs/Path.h>
+#include <pcl_conversions/pcl_conversions.h>
+#include <ros/ros.h>
+#include <sensor_msgs/Image.h>
+#include <sensor_msgs/Imu.h>
+#include <sensor_msgs/PointCloud.h>
+#include <sensor_msgs/PointCloud2.h>
+#include <sensor_msgs/image_encodings.h>
+#include <std_msgs/Bool.h>
+#include <std_msgs/Float32.h>
+#include <std_msgs/Header.h>
+#include <tf/transform_broadcaster.h>
+#include <visualization_msgs/Marker.h>
 
 extern ros::Publisher pub_odometry;
 extern ros::Publisher pub_path, pub_pose;
@@ -41,7 +43,8 @@ extern int IMAGE_ROW, IMAGE_COL;
 
 void registerPub(ros::NodeHandle &n);
 
-void pubLatestOdometry(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q, const Eigen::Vector3d &V, double t);
+void pubLatestOdometry(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q,
+                       const Eigen::Vector3d &V, double t);
 
 void pubLatestCameraPose(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q,
                          const Eigen::Vector3d &V, double t);
@@ -66,4 +69,4 @@ void pubKeyframe(const Estimator &estimator);
 
 void pubRelocalization(const Estimator &estimator);
 
-void pubCar(const Estimator & estimator, const std_msgs::Header &header);
+void pubCar(const Estimator &estimator, const std_msgs::Header &header);

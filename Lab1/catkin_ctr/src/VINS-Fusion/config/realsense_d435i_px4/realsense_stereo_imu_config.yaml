@@ -5,14 +5,14 @@
 imu: 1         
 num_of_cam: 2  
 
-imu_topic: "/mavros/imu/data"
+imu_topic: "/mavros/imu/data_raw"
 image0_topic: "/camera/infra1/image_rect_raw"
 image1_topic: "/camera/infra2/image_rect_raw"
-output_path: "/home/cooper/ws/fast_vins_ws/output"
+output_path: "/home/cat/code/ws/vins_fusion_ws/output"
 
 cam0_calib: "left.yaml"
 cam1_calib: "right.yaml"
-image_width: 640
+image_width: 848
 image_height: 480
    
 
@@ -31,42 +31,22 @@ estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trus
 #        1.0457519809151661e-03, -9.9999129084997906e-01,
 #        -4.0403746097850135e-03, 2.8559824645148020e-03, 0., 0., 0., 1. ]
 
-# body_T_cam0: !!opencv-matrix
-#    rows: 4
-#    cols: 4
-#    dt: d
-#    data: [ 2.6791578632427204e-02, 3.7805498257645176e-02, 9.9892590096356693e-01, 4.6529367922283710e-02,
-#            -9.9964044183663758e-01, -8.1073451812185837e-05, 2.6813811212648465e-02, -4.1308160995598191e-02,
-#            1.0946958639763168e-03, -9.9928511333282000e-01, 3.7789732896367334e-02, -1.8010398565717071e-02,
-#            0.0, 0.0, 0.0, 1.0 ]
-# body_T_cam1: !!opencv-matrix
-#    rows: 4
-#    cols: 4
-#    dt: d
-#    data: [ 2.6791578632427204e-02, 3.7805498257645176e-02, 9.9892590096356693e-01, 4.4636972512619781e-02,
-#            -9.9964044183663758e-01, -8.1073451812185837e-05, 2.6813811212648465e-02, -4.1304102478080882e-02,
-#            1.0946958639763168e-03, -9.9928511333282000e-01, 3.7789732896367334e-02, 3.1995890890974945e-02,
-#            0.0, 0.0, 0.0, 1.0 ]
 body_T_cam0: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ -2.3772762541815151e-02, 2.3750339227356053e-02,
-       9.9943522909076810e-01, 8.3729195544702012e-02,
-       -9.9905941341963045e-01, 3.5700531659899726e-02,
-       -2.4612202193720820e-02, 1.7196466897618237e-02,
-       -3.6264917189407324e-02, -9.9908027376471920e-01,
-       2.2879299715232171e-02, 9.8168206333292874e-04, 0., 0., 0., 1. ]
+   data: [ 2.6791578632427204e-02, 3.7805498257645176e-02, 9.9892590096356693e-01, 4.6529367922283710e-02,
+           -9.9964044183663758e-01, -8.1073451812185837e-05, 2.6813811212648465e-02, -4.1308160995598191e-02,
+           1.0946958639763168e-03, -9.9928511333282000e-01, 3.7789732896367334e-02, -1.8010398565717071e-02,
+           0.0, 0.0, 0.0, 1.0 ]
 body_T_cam1: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ -2.4311091495006654e-02, 2.3761218016242053e-02,
-       9.9942202064428509e-01, 8.0728742984135973e-02,
-       -9.9904372151368559e-01, 3.5763268489639954e-02,
-       -2.5152159569769898e-02, -2.1110980882889697e-02,
-       -3.6340244005876599e-02, -9.9907777131979181e-01,
-       2.2869051582232514e-02, 7.1639931627931366e-04, 0., 0., 0., 1. ]
+   data: [ 2.6791578632427204e-02, 3.7805498257645176e-02, 9.9892590096356693e-01, 4.4636972512619781e-02,
+           -9.9964044183663758e-01, -8.1073451812185837e-05, 2.6813811212648465e-02, -4.1304102478080882e-02,
+           1.0946958639763168e-03, -9.9928511333282000e-01, 3.7789732896367334e-02, 3.1995890890974945e-02,
+           0.0, 0.0, 0.0, 1.0 ]
 # body_T_cam1: !!opencv-matrix
 #    rows: 4
 #    cols: 4
@@ -82,17 +62,17 @@ body_T_cam1: !!opencv-matrix
 multiple_thread: 1
 
 #feature traker paprameters
-max_cnt: 150            # max feature number in feature tracking
+max_cnt: 100            # max feature number in feature tracking
 min_dist: 30            # min distance between two features 
 freq: 10                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
 F_threshold: 1.0        # ransac threshold (pixel)
-show_track: 0           # publish tracking image as topic
+show_track: 1           # publish tracking image as topic
 flow_back: 1            # perform forward and backward optical flow to improve feature tracking accuracy
 
 #optimization parameters
-max_solver_time: 0.05  # max solver itration time (ms), to guarantee real time
+max_solver_time: 0.04  # max solver itration time (ms), to guarantee real time
 max_num_iterations: 8   # max solver itrations, to guarantee real time
-keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
+keyframe_parallax: 15.0 # keyframe selection threshold (pixel)
 
 #imu parameters       The more accurate parameters you provide, the better performance
 acc_n: 0.1          # accelerometer measurement noise standard deviation. #0.2   0.04
@@ -107,7 +87,5 @@ td: 0.00                             # initial value of time offset. unit: s. re
 
 #loop closure parameters
 load_previous_pose_graph: 0        # load and reuse previous pose graph; load from 'pose_graph_save_path'
-pose_graph_save_path: "/home/cooper/ws/fast_vins_ws/pose_graph" # save and load path
+pose_graph_save_path: "/home/cat/code/ws/vins_fusion_ws/pose_graph" # save and load path
 save_image: 0                   # save image in pose graph for visualization prupose; you can close this function by setting 0 
-
-# output_path: "/home/cat/code/ws/vins_fusion_ws/output"

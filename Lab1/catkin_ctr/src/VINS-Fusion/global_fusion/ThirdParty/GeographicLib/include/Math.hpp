@@ -18,9 +18,9 @@
  * Are C++11 math functions available?
  **********************************************************************/
 #if !defined(GEOGRAPHICLIB_CXX11_MATH)
-// Recent versions of g++ -std=c++11 (4.7 and later?) set __cplusplus to 201103
+// Recent versions of g++ -std=c++14 (4.7 and later?) set __cplusplus to 201103
 // and support the new C++11 mathematical functions, std::atanh, etc.  However
-// the Android toolchain, which uses g++ -std=c++11 (4.8 as of 2014-03-11,
+// the Android toolchain, which uses g++ -std=c++14 (4.8 as of 2014-03-11,
 // according to Pullan Lu), does not support std::atanh.  Android toolchains
 // might define __ANDROID__ or ANDROID; so need to check both.  With OSX the
 // version is GNUC version 4.2 and __cplusplus is set to 201103, so remove the

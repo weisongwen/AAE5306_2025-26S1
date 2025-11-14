@@ -1,0 +1,108 @@
+%YAML:1.0
+
+#common parameters
+#support: 1 imu 1 cam; 1 imu 2 cam: 2 cam; 
+imu: 1         
+num_of_cam: 2  
+
+imu_topic: "/djiros/imu"
+image0_topic: "/camera/infra1/image_rect_raw"
+image1_topic: "/camera/infra2/image_rect_raw"
+output_path: "/home/eason/output/"
+
+cam0_calib: "left.yaml"
+cam1_calib: "right.yaml"
+image_width: 848
+image_height: 480
+   
+
+# Extrinsic parameter between IMU and Camera.
+estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+                        # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
+
+# body_T_cam0: !!opencv-matrix
+#    rows: 4
+#    cols: 4
+#    dt: d
+#    data: [ -3.5248604288341756e-02, -4.3608236102312126e-03,
+#        9.9936906051426511e-01, 8.3402123960514662e-02,
+#        -9.9931521789638089e-01, 1.1413740726275545e-02,
+#        -3.5196900479194937e-02, -2.2413167525890086e-03,
+#        -1.1253051871954911e-02, -9.9992535208388134e-01,
+#        -4.7601558265764066e-03, 2.8490185392323467e-02, 0., 0., 0., 1. ]
+# body_T_cam1: !!opencv-matrix
+#    rows: 4
+#    cols: 4
+#    dt: d
+#    data: [ -3.1720541595157803e-02, -9.0806080906556952e-03,
+#        9.9945552667320525e-01, 8.7357724704905965e-02,
+#        -9.9943594966459337e-01, 1.1320040333667847e-02,
+#        -3.1617071415248055e-02, -5.2485856225545413e-02,
+#        -1.1026774639151971e-02, -9.9989469407710552e-01,
+#        -9.4345639808794957e-03, 2.7339315667408100e-02, 0., 0., 0., 1. ]
+
+body_T_cam0: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ 5.1492774825758758e-03, -8.9051997840788322e-03,
+       9.9994708977936098e-01, 7.8151123748354048e-02,
+       -9.9996922861066340e-01, 5.8723307298773619e-03,
+       5.2016885329896900e-03, 6.4938999254619163e-03,
+       -5.9183420991637536e-03, -9.9994310495577943e-01,
+       -8.8746874983116619e-03, 4.0369425742483610e-02, 0., 0., 0., 1. ]
+body_T_cam1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ 3.7408321120648846e-03, -5.9290992448205460e-03,
+       9.9997542567667863e-01, 7.6222906286513639e-02,
+       -9.9997530641443488e-01, 5.9269370047336789e-03,
+       3.7759739272302251e-03, -4.3160218357895193e-02,
+       -5.9491794784278240e-03, -9.9996485798246293e-01,
+       -5.9067811578277230e-03, 4.0083880490499706e-02, 0., 0., 0., 1. ]
+
+center_T_imu: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: d
+   data: [ 1.0, 0.0,
+       0.0, 0.0e-02,
+       0.0, 1.0,
+       0.0, 2.0e-02,
+       0.0, 0.0,
+       1.0, 1.0e-02, 0.0, 0.0, 0.0, 1.0 ]
+
+#Multiple thread support
+multiple_thread: 1
+
+#feature traker paprameters
+max_cnt: 100            # max feature number in feature tracking
+min_dist: 30            # min distance between two features 
+freq: 10                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
+F_threshold: 1.0        # ransac threshold (pixel)
+show_track: 0           # publish tracking image as topic
+flow_back: 1            # perform forward and backward optical flow to improve feature tracking accuracy
+
+#optimization parameters
+max_solver_time: 0.04  # max solver itration time (ms), to guarantee real time
+max_num_iterations: 8   # max solver itrations, to guarantee real time
+keyframe_parallax: 10.0 # keyframe selection threshold (pixel)
+
+#imu parameters       The more accurate parameters you provide, the better performance
+acc_n: 0.2          # accelerometer measurement noise standard deviation. #0.2   0.04
+gyr_n: 0.05         # gyroscope measurement noise standard deviation.     #0.05  0.004
+acc_w: 0.002         # accelerometer bias random work noise standard deviation.  #0.002
+gyr_w: 0.0004       # gyroscope bias random work noise standard deviation.     #4.0e-5
+g_norm: 9.805         # gravity magnitude
+
+#unsynchronization parameters
+estimate_td: 1                      # online estimate time offset between camera and imu
+td: -0.014                            # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
+
+#loop closure parameters
+load_previous_pose_graph: 1        # load and reuse previous pose graph; load from 'pose_graph_save_path'
+pose_graph_save_path: "/home/dji/output/pose_graph/" # save and load path
+save_image: 0                   # save image in pose graph for visualization prupose; you can close this function by setting 0
+pg_R_vio_buffer_length: 10
+pg_t_vio_buffer_length: 5 

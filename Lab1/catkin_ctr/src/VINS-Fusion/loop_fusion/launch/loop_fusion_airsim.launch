@@ -1,0 +1,3 @@
+<launch>
+  <node name="loop_fusion" pkg="loop_fusion" type="loop_fusion_node" output="screen" args="/home/eason/workspace/exploration_ws/src/VINS-Fusion/config/airsim/airsim_unsync.yaml" />
+</launch>

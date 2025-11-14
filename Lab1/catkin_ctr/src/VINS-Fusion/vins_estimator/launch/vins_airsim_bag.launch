@@ -1,0 +1,5 @@
+<launch>
+  <node name="vins_estimator" pkg="vins" type="vins_node" output="screen" args="/home/eason/workspace/exploration_ws/src/VINS-Fusion/config/airsim/airsim_unsync.yaml" />
+
+  <node pkg="rosbag" type="play" name="player" output="screen" args="--clock --delay 1 -s 0.5 /home/eason/source/bag/2023-04-27-16-27-53.bag"/>
+</launch>

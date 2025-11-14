@@ -23,6 +23,7 @@
 #include <nav_msgs/Path.h>
 #include <geometry_msgs/PointStamped.h>
 #include <nav_msgs/Odometry.h>
+#include <std_msgs/Empty.h>
 #include <stdio.h>
 #include <ros/ros.h>
 #include "keyframe.h"
@@ -96,7 +97,8 @@ private:
 	ros::Publisher pub_pg_path;
 	ros::Publisher pub_base_path;
 	ros::Publisher pub_pose_graph;
-	ros::Publisher pub_path[10];
+	ros::Publisher pub_opt;
+	ros::Publisher pub_path[10]; //used for publish different sequence
 };
 
 template <typename T> inline
